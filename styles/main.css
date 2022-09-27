@@ -9,6 +9,18 @@ html {
     font-family: 'Jost', sans-serif;
 }
 
+/* BREAKPOINTS */
+
+/* 
+@media (max-width: 75em) {}
+
+@media (max-width: 62em) {}
+
+@media (max-width: 48em) {}
+
+@media (max-width: 36em) {}
+ */
+
 .container {
     width: 95%;
     margin: 0px auto;
@@ -16,12 +28,54 @@ html {
 
 .header {
     height: 40rem;
+    position: relative;
+    overflow: hidden;
+}
 
-    background-image: linear-gradient(-5.71deg, white 49.9%, transparent 50.1%),
-        url("../images/pexels-benjamin-suter-3617500.jpg");
-    background-repeat: no-repeat, no-repeat;
-    background-position: center 100%, center center;
-    background-size: 100vw 10vw, cover;
+.header__container {
+    position: relative;
+}
+
+.header::before {
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -9rem;
+    width: 100vw;
+    position: absolute;
+
+    background-image: url("../images/pexels-benjamin-suter-3617500.jpg");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100% auto;
+}
+
+.header::after {
+    content: "";
+    height: 33vw;
+    width: 100vw;
+    bottom: -9rem;
+    position: absolute;
+
+    background-image: url("../images/pexels-benjamin-suter-3617500-mountains.webp");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100% auto;
+}
+
+.header__slope {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 10vw;
+    z-index: 1;
+
+    background-image: linear-gradient(-5.71deg, white 49.8%, transparent 50.2%);
+    background-repeat: no-repeat;
+    background-position: center 100%;
+    background-size: 100vw 10vw;
 }
 
 .icon {
@@ -56,6 +110,7 @@ html {
 
 .navigation__list-item-link:hover {
     border-bottom: 0.15rem solid rgb(0, 226, 156);
+    color: rgb(200, 200, 200);
 }
 
 .navigation__list-item--menu .navigation__list-item-link {
@@ -105,4 +160,6 @@ html {
     font-size: 1.5rem;
     letter-spacing: 0.2rem;
     text-shadow: 0 0 1rem black;
+    z-index: 1;
+    position: relative;
 }
