@@ -1,2 +1,2 @@
-# photography-masterclass
+# masterclass
  
