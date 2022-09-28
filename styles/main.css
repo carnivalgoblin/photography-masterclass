@@ -11,25 +11,36 @@ html {
 
 /* BREAKPOINTS */
 
-/* 
+/** 1200px oder schmaler **/
 @media (max-width: 75em) {}
 
+/** 992px oder schmaler **/
 @media (max-width: 62em) {}
 
+/** 768px oder schmaler **/
 @media (max-width: 48em) {}
 
+/** 576px oder schmaler **/
 @media (max-width: 36em) {}
- */
+
+/* BREAKPOINTS END */
 
 .container {
-    width: 95%;
+    max-width: 75rem;
     margin: 0px auto;
 }
 
 .header {
-    height: 40rem;
+    height: 35rem;
+    min-height: calc(13rem + 32vw);
     position: relative;
     overflow: hidden;
+}
+
+@media (max-width: 75em) {
+    .header {
+        height: calc(18rem + 32vw);
+    }
 }
 
 .header__container {
@@ -64,6 +75,38 @@ html {
     background-size: 100% auto;
 }
 
+@media (max-width: 75em) {
+
+    .header::before {
+        bottom: -4rem;
+    }
+
+    .header::after {
+        bottom: -4rem;
+    }
+}
+
+@media (max-width: 62em) {
+
+    .header::before {
+        bottom: -2rem;
+    }
+
+    .header::after {
+        bottom: -2rem;
+    }
+}
+
+@media (max-width: 36em) {
+    .header::before {
+        background-size: cover;
+    }
+
+    .header::after {
+        display: none;
+    }
+}
+
 .header__slope {
     position: absolute;
     left: 0;
@@ -90,6 +133,12 @@ html {
     list-style-type: none;
     display: block;
     float: left;
+}
+
+@media (max-width:62em) {
+    .navigation__list-item--mobile-hidden {
+        display: none;
+    }
 }
 
 .navigation__list-item--menu {
@@ -143,7 +192,7 @@ html {
 .header__heading-container {
     clear: both;
     text-align: center;
-    padding-top: 8rem;
+    padding-top: 6.5rem;
 }
 
 .heading__heading-main {
@@ -154,6 +203,24 @@ html {
     text-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
 }
 
+@media (max-width:62em) {
+    .heading__heading-main {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 48em) {
+    .heading__heading-main {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 36em) {
+    .heading__heading-main {
+        font-size: 1.5rem;
+    }
+}
+
 .heading__heading-sub {
     color: white;
     text-transform: uppercase;
@@ -162,4 +229,16 @@ html {
     text-shadow: 0 0 1rem black;
     z-index: 1;
     position: relative;
+}
+
+@media (max-width: 48em) {
+    .heading__heading-sub {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 36em) {
+    .heading__heading-sub {
+        font-size: 0.5rem;
+    }
 }
