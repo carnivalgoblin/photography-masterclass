@@ -1,4 +1,4 @@
-
+@use "../abstracts/index" as *;
 
 .navigation__list-item {
     list-style-type: none;
@@ -6,7 +6,7 @@
     float: left;
 
     &--mobile-hidden {
-        @media (max-width: 62em) {
+        @media (max-width: $breakpoint-md) {
             display: none;
         }
     }
@@ -28,7 +28,7 @@
     text-shadow: 0 0 0.5rem black;
 
     &:hover {
-        border-bottom: 0.15rem solid rgb(0, 226, 156);
+        border-bottom: 0.15rem solid $color-primary;
     }
 
     .navigation__list-item--menu & {
