@@ -1,4 +1,4 @@
-@use "../abstracts/index" as *;
+@use "../abstracts" as *;
 
 .navigation__list-item {
     list-style-type: none;
@@ -33,15 +33,19 @@
 
     .navigation__list-item--menu & {
         margin-top: 0.4rem;
-    }
+        margin-right: 0;
+        padding-right: 0;
 
-    .navigation__list-item--menu &:hover {
-        border-bottom: none;
-        color: rgb(200, 200, 200);
+        &:hover {
+            border-bottom: none;
+            color: rgb(200, 200, 200);
+        }
     }
 
     &--logo {
         margin-top: 0.9rem;
+        padding-left: 0;
+        margin-left: 0;
 
         &:hover {
             border-bottom: none;
@@ -49,6 +53,7 @@
         }
     }
 }
+
 
 .navigation__list-item-logo {
     width: 4rem;

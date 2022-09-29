@@ -1,16 +1,16 @@
-@use "../abstracts/index" as *;
+@use "../abstracts" as *;
 
-.header { 
+.header {
     height: 35rem; 
     min-height: calc(13rem + 32vw); 
     position: relative;
     overflow: hidden;
 
-    @media (max-width: $breakpoint-lg) {
-      height: calc(18rem + 32vw); 
+    /** 1200px oder schmaler */
+    @media (max-width: $breakpoint-lg) {  
+        height: calc(18rem + 32vw); 
     }
 }
-  
 
 .header__slope {
     position: absolute;
@@ -36,35 +36,37 @@
     position: absolute; 
     width: 100vw;
     bottom: -9rem;
+
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: 100% auto;
 
+    /** 1200px oder schmaler */
     @media (max-width: $breakpoint-lg) {
-      bottom: -4rem;
+        bottom: -4rem;
     }
 
     @media (max-width: $breakpoint-md) {
-      Bottom: -1rem;
+        bottom: -1rem;
     }
 }
-
 
 .header::before {
     top: 0;
     background-image: url("../images/pexels-benjamin-suter-3617500.jpg");
 
     @media (max-width: $breakpoint-xs) { 
-      background-size: cover;
+        background-size: cover;
     }
 }
-    
+
 .header::after {
+    /* ~660 pixel hoch <=> 33vw */
     height: 33vw;
     background-image: url("../images/pexels-benjamin-suter-3617500-mountains.webp");
 
     @media (max-width: $breakpoint-xs) { 
-      display: none;
+        display: none;
     }
 }
 
@@ -88,13 +90,12 @@
     animation-fill-mode: both;
 
     @media (max-width: $breakpoint-md) {
-      font-size: 5rem;
+        font-size: 5rem;
     }
 
     @media (max-width: $breakpoint-sm) {
-      font-size: 3rem;
+        font-size: 3rem;
     }
-
 }
 @keyframes header__heading-main-font-weight {
     0% {
@@ -106,6 +107,7 @@
         font-weight: 700;
     }
 }
+
 
 .header__heading-sub {
     margin-top: 1rem;
@@ -119,6 +121,6 @@
     position: relative;
 
     @media (max-width: $breakpoint-sm) {
-      Font-size: 1rem;
+        font-size: 1rem;
     }
 }
