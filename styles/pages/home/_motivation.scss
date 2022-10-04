@@ -79,7 +79,7 @@ $-motivation__image-hover-border: 0.33rem;
 /** 
  * @param $top: Position from top in rem
  * @param $left: Position from left in %
- */
+ **/
 @mixin motivation__image-position($top, $left) {
   top: $top;
   left: $left;
