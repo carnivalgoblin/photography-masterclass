@@ -1,10 +1,13 @@
 @use "../../abstracts" as *;
 
 $-tours-background-color: $color-secondary-dark;
+$-tours-icon-size: 3rem;
+$-tours-animation-duration: 0.25s;
 
 .tours {
     background-color: $-tours-background-color;
     position: relative;
+    padding-bottom: 8.5rem;
 }
 
 %tours__before-and-after {
@@ -15,10 +18,12 @@ $-tours-background-color: $color-secondary-dark;
     position: absolute;
     text-transform: uppercase;
     color: $-tours-background-color;
-    font-size: 10rem;
+    font-size: min(calc(100vw / 9), 10rem);
     font-weight: bold;
     text-shadow: 0 0 1px white;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 @mixin -tours__before-and-after-stroke($color) {
@@ -54,39 +59,77 @@ $-tours-background-color: $color-secondary-dark;
     font-size: 2rem;
     letter-spacing: 0.15em;
     padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-bottom: 1rem;
 }
 
 .tours__cards {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .tours__card {
     position: relative;
-    width: 20%;
+    flex: 0 0 calc(71rem / 5);
     height: 21rem;
+    margin-top: 3rem;
     overflow: hidden;
+    z-index: 0;
+    box-shadow: 0 0 1rem transparent;
+    transition: transform $-tours-animation-duration ease-in-out, z-index $-tours-animation-duration linear, box-shadow $-tours-animation-duration ease-in-out;
+
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 1rem black;
+        z-index: 1000;
+
+        transition: transform $-tours-animation-duration ease-in-out, z-index 0s linear, box-shadow $-tours-animation-duration ease-in-out;
+    }
 }
 
 .tours__card-img {
     width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
+    object-fit: cover;
     filter: brightness(0.8);
+}
+
+.tours__card-icon-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $-tours-icon-size;
+    background-color: $color-primary;
+    width: 100%;
+    transform: translate(calc(-100% + #{$-tours-icon-size}), 0);
+    box-shadow: 0 0 0.125rem rgba(0, 0, 0, 0.25);
+
+    transition: transform $-tours-animation-duration ease-in-out;
+
+    .tours__card:hover & {
+        transform: translate(0, 0);
+    }
 }
 
 .tours__card-icon-container {
     position: absolute;
-    top: 0;
-    left: 0;
-    background-color: $color-primary;
+    width: 100%;
+    transform: translate(0, 0);
+    transition: transform $-tours-animation-duration ease-in-out;
+
+    .tours__card:hover & {
+        transform: translate(calc(50% - calc($-tours-icon-size / 2)), 0);
+    }
 }
 
 .tours__card-icon {
-    width: 3rem;
+    width: $-tours-icon-size;
     color: white;
     display: block;
+    filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.5));
 }
 
 .tours__card-content {
@@ -98,11 +141,20 @@ $-tours-background-color: $color-secondary-dark;
     padding: 3rem 1rem 0 1rem;
     text-shadow: 0 0 0.125rem black;
     background-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.25) 20%);
+    transform: translate(0, calc(100% - 7.15rem));
+    transition: transform $-tours-animation-duration ease-in-out;
+
+    .tours__card:hover & {
+        transform: translate(0, 0);
+    }
 }
 
 .tours__card-heading {
     font-size: 1rem;
     margin-bottom: 0.25rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .tours__card-location {
@@ -118,6 +170,9 @@ $-tours-background-color: $color-secondary-dark;
 .tours__card-location-text {
     line-height: 1.9rem;
     padding-left: 0.15rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .tours__card-desc {
@@ -127,4 +182,5 @@ $-tours-background-color: $color-secondary-dark;
     background-size: 100% 0.125rem;
     background-repeat: no-repeat;
     padding: 0.75rem 0;
+
 }
