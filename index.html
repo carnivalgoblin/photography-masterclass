@@ -378,7 +378,7 @@
                     urna quis mi maximus volutpat sit amet ut leo. </p>
             </div>
             <div class="story__book">
-                <a class="button button--white button--background-blur" href="#">Book now</a>
+                <a class="button button--white button--background-blur" href="#booking-modal">Book now</a>
             </div>
         </div>
     </section>
@@ -435,7 +435,7 @@
                             </div>
                         </div>
                         <div class="offers__card-hover">
-                            <a href="#" class="button button--slim button--secondary">Jetzt buchen!</a>
+                            <a href="#booking-modal" class="button button--slim button--secondary">Jetzt buchen!</a>
                         </div>
                     </div>
                 </div>
@@ -490,7 +490,7 @@
                             </div>
                         </div>
                         <div class="offers__card-hover">
-                            <a href="#" class="button button--slim button--secondary">Jetzt buchen!</a>
+                            <a href="#booking-modal" class="button button--slim button--secondary">Jetzt buchen!</a>
                         </div>
                     </div>
                 </div>
@@ -541,7 +541,7 @@
                             </div>
                         </div>
                         <div class="offers__card-hover">
-                            <a href="#" class="button button--slim button--secondary">Jetzt buchen!</a>
+                            <a href="#booking-modal" class="button button--slim button--secondary">Jetzt buchen!</a>
                         </div>
                     </div>
                 </div>
@@ -744,6 +744,45 @@
                 </li>
             </ul>
         </footer>
+    </section>
+
+    <section class="booking-modal" id="booking-modal">
+        <div class="booking-modal__content">
+            <a class="booking-modal__close" href="#">x</a>
+            <h3 class="booking-modal__heading">Jetzt Buchungsanfrage stellen!</h3>
+            <p class="booking-modal__paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor
+                incididunt ut labore et dolore magna aliqua.</p>
+
+            <form class="form" action="#">
+                <div class="form__horizontal">
+                    <div class="form__group">
+                        <input type="text" class="form__input" id="booking-modal-name" placeholder="Name" />
+                        <label class="form__label" for="booking-modal-name">Name</label>
+                    </div>
+                    <div class="form__group">
+                        <input type="text" class="form__input" id="booking-modal-email" placeholder="E-Mail" />
+                        <label class="form__label" for="booking-modal-email">E-Mail</label>
+                    </div>
+                </div>
+                <div class="form__radio-group">
+                    <div class="form__radio-item form__radio-item--white">
+                        <input class="form__radio-item-radio" type="radio" name="type" value="private"
+                            id="booking-modal-type-private" />
+                        <label class="form__radio-item-label" for="booking-modal-type-private">Private Tour
+                            buchen</label>
+                    </div>
+                    <div class="form__radio-item form__radio-item--white">
+                        <input class="form__radio-item-radio" type="radio" name="type" value="group"
+                            id="booking-modal-type-group" />
+                        <label class="form__radio-item-label" for="booking-modal-type-group">Gruppentour buchen</label>
+                    </div>
+                </div>
+                <div class="booking-modal__submit-container">
+                    <input type="submit" class="button button--form" value="Anfrage abschicken!" />
+                </div>
+            </form>
+        </div>
     </section>
 
     <!-- Bux fix for Chrome: https://stackoverflow.com/questions/14389566/stop-css-transition-from-firing-on-page-load -->
