@@ -66,6 +66,13 @@ $-booking-modal-height: 23rem;
     border-radius: 0.25rem;
     padding-left: calc(min(100vw, #{$-booking-modal-width}) * 0.375);
 
+    @media (max-width: $breakpoint-xs) {
+        height: 27rem;
+        padding-left: 1rem;
+        background-color: $color-secondary-light;
+        background-image: none;
+    }
+
     $modal-content-bg: color.scale($color-secondary-light, $alpha: -15%);
     
     background-image: 

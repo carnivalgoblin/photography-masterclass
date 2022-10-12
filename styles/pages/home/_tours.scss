@@ -70,7 +70,11 @@ $-tours-animation-duration: 0.25s;
 
 .tours__card {
     position: relative;
-    flex: 0 0 calc(71rem / 5);
+    flex: 0 0 20%;
+    @media (max-width: $breakpoint-lg) {
+        flex: 0 0 14.2rem;
+    }
+    
     height: 21rem;
     margin-top: 3rem;
     overflow: hidden;

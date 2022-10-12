@@ -12,6 +12,12 @@
   font-display: swap;
   src: url("../fonts/jost/Jost-Italic-VariableFont_wght.woff2") format("woff2");
 }
+/** 1200px oder schmaler */
+/** 992px oder schmaler */
+/** 768px oder schmaler */
+/** 576px oder schmaler */
+/** 400px oder schmaler */
+/** Breakpoints */
 * {
   margin: 0;
   padding: 0;
@@ -22,17 +28,42 @@ html {
   font-size: 100%;
   font-family: "Jost", sans-serif;
 }
+@media (min-width: 100em) {
+  html {
+    font-size: 133%;
+  }
+}
+@media (min-width: 150em) {
+  html {
+    font-size: 166%;
+  }
+}
+@media (min-width: 200em) {
+  html {
+    font-size: 200%;
+  }
+}
+@media (max-width: 25em) {
+  html {
+    font-size: 75%;
+  }
+}
 
 input,
 select {
   font-family: inherit;
 }
 
-/** 1200px oder schmaler */
-/** 992px oder schmaler */
-/** 768px oder schmaler */
-/** 576px oder schmaler */
-/** Breakpoints */
+::-moz-selection {
+  color: white;
+  background-color: rgba(38, 70, 77, 0.8);
+}
+
+::selection {
+  color: white;
+  background-color: rgba(38, 70, 77, 0.8);
+}
+
 .container {
   max-width: 75rem;
   margin: 0px auto;
@@ -210,6 +241,7 @@ select {
 }
 
 .navigation__list-item-link {
+  cursor: pointer;
   color: white;
   text-decoration: none;
   padding: 0.5rem 0.25rem 0.25rem 0.25rem;
@@ -416,6 +448,95 @@ select {
   .footer__footer-link {
     padding: 0.5rem 0.5rem;
   }
+}
+
+.sidenav__opened {
+  display: none;
+}
+
+.sidenav {
+  display: block;
+  position: fixed;
+  z-index: 15000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+}
+.sidenav__opened:checked ~ .sidenav {
+  pointer-events: all;
+}
+
+.sidenav__background {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.sidenav__opened:checked ~ .sidenav .sidenav__background {
+  display: block;
+  opacity: 1;
+}
+
+.sidenav__container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 15rem;
+  background-color: rgb(235, 235, 235);
+  max-width: 100vw;
+  box-shadow: none;
+  transform: translate(100%, 0);
+  will-change: transform;
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+.sidenav__opened:checked ~ .sidenav .sidenav__container {
+  transform: translate(0, 0);
+  box-shadow: 0 0 1rem black;
+}
+
+.sidenav__closed {
+  position: absolute;
+  right: 1.25rem;
+  top: 1.25rem;
+  cursor: pointer;
+  color: transparent;
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 10000px;
+  background-image: linear-gradient(-45deg, transparent 44%, black 45%, black 55%, transparent 56%), linear-gradient(45deg, transparent 44%, black 45%, black 55%, transparent 56%);
+}
+
+.sidenav__nav {
+  margin-top: 3.75rem;
+  list-style-type: none;
+  border-top: 0.0625rem solid rgb(210, 210, 210);
+}
+
+.sidenav__nav-link {
+  font-size: 1.25rem;
+  padding: 0.5rem 1.5rem;
+  display: block;
+  color: #26464d;
+  font-weight: 300;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: rgb(235, 235, 235);
+  border-bottom: 0.0625rem solid rgb(210, 210, 210);
+  transition: color 0.25s ease-in-out, font-weight 0.25s ease-in-out, background-color 0.25s ease-in-out;
+}
+.sidenav__nav-link:hover {
+  background-color: white;
+  color: rgb(0, 226, 156);
+  font-weight: 500;
 }
 
 .icon {
@@ -789,13 +910,18 @@ select {
 
 .tours__card {
   position: relative;
-  flex: 0 0 14.2rem;
+  flex: 0 0 20%;
   height: 21rem;
   margin-top: 3rem;
   overflow: hidden;
   z-index: 0;
   box-shadow: 0 0 1rem transparent;
   transition: transform 0.25s ease-in-out, z-index 0.25s linear, box-shadow 0.25s ease-in-out;
+}
+@media (max-width: 75em) {
+  .tours__card {
+    flex: 0 0 14.2rem;
+  }
 }
 .tours__card:hover {
   transform: scale(1.1);
@@ -1604,6 +1730,14 @@ select {
   animation-iteration-count: 1;
   animation-timing-function: ease-in-out;
   animation-fill-mode: backwards;
+}
+@media (max-width: 36em) {
+  .booking-modal__content {
+    height: 27rem;
+    padding-left: 1rem;
+    background-color: #407682;
+    background-image: none;
+  }
 }
 
 @keyframes booking-modal__content--fade-in {
